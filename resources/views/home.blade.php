@@ -22,7 +22,9 @@
                 <a  href="/show/{{ $ticket->id }}">
                     <b>{{ $ticket->name }}</b>
                     <p>{{ $ticket->description }}</p>
-                    <p>{{ $ticket->unique_id }}</p>
+                    <p>Ticket : {{ $ticket->unique_id }}</p>
+                    <small>Status : {{ $ticket->status }}</small>
+                    <br>
                     <small>{{ $ticket->created_at }}</small>
                 </a>
             </div>

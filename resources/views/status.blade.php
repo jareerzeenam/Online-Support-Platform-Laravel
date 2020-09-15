@@ -12,6 +12,7 @@
                 <div class="float-right ">
                     <p class="status">Status : {{ $ticket->status }}</p>
                 </div>
+                <p><strong>Support Reply : </strong> {{ $ticket->reply }}</p>
             </div>
             @endforeach
 

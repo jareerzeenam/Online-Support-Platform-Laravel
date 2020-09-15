@@ -14,8 +14,8 @@ class AddStatusToSupportTicketsTable extends Migration
     public function up()
     {
         Schema::table('support_tickets', function (Blueprint $table) {
-            $table->string('status')->default('pending')->nullable();
-            $table->string('reply')->nullable();
+            $table->string('status')->default('Pending')->nullable();
+            $table->string('reply')->default('No Reply')->nullable();
         });
     }
 

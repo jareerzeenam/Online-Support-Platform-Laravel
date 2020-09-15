@@ -104,9 +104,15 @@ class SupportTicketController extends Controller
      * @param  \App\Models\SupportTicket  $supportTicket
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SupportTicket $supportTicket)
+    public function update(Request $request, $id)
     {
-        //
+        $status = SupportTicket::find($id);
+        $status->status = $request->input('status');
+        $status->save();
+
+        return  redirect()->back()->with('success', 'Status Updated!');
+
+        // dd('Updated');
     }
 
     /**

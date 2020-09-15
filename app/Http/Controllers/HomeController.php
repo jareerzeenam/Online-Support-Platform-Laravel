@@ -45,8 +45,17 @@ class HomeController extends Controller
         return view('tickets.show')->with('ticket', $ticket);
     }
 
-    public function reply(Request $request)
+    public function reply(Request $request, $id)
     {
+        // !Validation
+        $this->validate($request, [
+            'reply_message' => 'required',
+        ]);
+
+        $status = SupportTicket::find($id);
+        $status->reply = $request->input('reply_message');
+        $status->save();
+
         // ! Mail Reply
         $name = $request->name;
         $email = $request->email;
