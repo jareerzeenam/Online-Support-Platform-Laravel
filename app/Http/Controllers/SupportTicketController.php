@@ -82,7 +82,7 @@ class SupportTicketController extends Controller
      */
     public function show(SupportTicket $supportTicket)
     {
-        //
+        
     }
 
     /**
