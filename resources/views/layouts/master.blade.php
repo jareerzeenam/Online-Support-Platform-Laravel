@@ -3,23 +3,26 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
+        <title>Online Support</title>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="{{ url('css/app.css') }}">
         <link rel="stylesheet" href="{{ url('css/style.css') }}">
+
+
     </head>
     <body class="antialiased">
-        <div class="container ">
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+
+    <nav class="navbar navbar-expand-lg navbar-light ">
         <a class="navbar-brand" href="/">Online Support Platform</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -55,13 +58,14 @@
                     </ul>
     </div>
     </nav>
-</div>
-    <div class="container">
+
+    <div class="container mt-4">
         @yield('content')
         @include('inc.messages')
     </div>
 
     <script src="{{ url('js/app.js') }}"></script>
+
     </body>
 
 

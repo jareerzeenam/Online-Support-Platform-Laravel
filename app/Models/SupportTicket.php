@@ -16,5 +16,6 @@ class SupportTicket extends Model
         'phone',
         'description',
         'unique_id',
+        'status',
     ];
 }

@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SupportTicketController;
 
+use App\Models\SupportTicket;
+use Illuminate\Support\Facades\Input;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +22,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::resource('ticket', SupportTicketController::class);
+Route::get('/search-token', [App\Http\Controllers\SupportTicketController::class, 'search']);
 
 Auth::routes();
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/show/{id}', [App\Http\Controllers\HomeController::class, 'show'])->name('show');
+Route::get('/search', [App\Http\Controllers\HomeController::class, 'search']);
+Route::post('/reply', [App\Http\Controllers\HomeController::class, 'reply'])->name('reply');

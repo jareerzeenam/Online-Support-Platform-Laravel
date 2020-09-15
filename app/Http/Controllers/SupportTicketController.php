@@ -66,8 +66,8 @@ class SupportTicketController extends Controller
 
         $data = array('name' => $name, 'email' => $email, 'description' => $description, 'unique_id' => $unique_id);
         Mail::send('mail', $data, function ($message) use ($name, $email, $subject) {
-            $message->to($email, 'Email Title')->subject($subject);
-            $message->from($email, $name);
+            $message->to($email, $name)->subject($subject);
+            $message->from($email, 'Online Support');
         });
 
         // dd('Email Sent');
@@ -80,9 +80,10 @@ class SupportTicketController extends Controller
      * @param  \App\Models\SupportTicket  $supportTicket
      * @return \Illuminate\Http\Response
      */
-    public function show(SupportTicket $supportTicket)
+    public function show($id)
     {
-        
+        // $ticket =  SupportTicket::find($id);
+        // return view('tickets.show')->with('ticket', $ticket);
     }
 
     /**
@@ -117,5 +118,13 @@ class SupportTicketController extends Controller
     public function destroy(SupportTicket $supportTicket)
     {
         //
+    }
+
+    // ! Search
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $status = SupportTicket::where('unique_id', $search)->paginate(5);
+        return view('status')->with('status', $status);
     }
 }

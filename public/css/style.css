@@ -7,6 +7,7 @@
     font-size: 16px;
     padding: 10px;
     box-shadow: 5px 10px 18px #888888;
+    border-radius: 5px;
 }
 
 .ticket a {
@@ -18,5 +19,36 @@
 .ticket:hover {
     cursor: pointer;
     background-color: rgba(238, 0, 0, 0.555);
+}
 
+
+svg {
+    display: none;
+}
+
+.navbar {
+    background-color: rgb(235, 235, 235);
+    color: #ffff;
+}
+
+.search-token {
+    background-color: rgb(66, 61, 61);
+    color: #ffff !important;
+    height: auto;
+    padding: 15px;
+}
+
+.status {
+    background-color: red;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+
+/* ! Mobile */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .mobile {
+        margin-top: 20px;
+    }
 }
