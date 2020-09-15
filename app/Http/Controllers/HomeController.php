@@ -71,6 +71,6 @@ class HomeController extends Controller
 
 
         // dd('Email Sent');
-        return redirect()->back()->with('success', 'Replied to the Email');
+        return redirect()->back()->with('success', 'Replied to Email');
     }
 }

@@ -129,6 +129,14 @@ class SupportTicketController extends Controller
     // ! Search
     public function search(Request $request)
     {
+
+        // !Validation
+        $this->validate($request, [
+            'search' => 'required',
+
+        ]);
+
+
         $search = $request->get('search');
         $status = SupportTicket::where('unique_id', $search)->paginate(5);
         return view('status')->with('status', $status);
