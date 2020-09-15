@@ -38,7 +38,7 @@ class SupportTicketController extends Controller
      */
     public function store(Request $request)
     {
-
+        // !Validation
         $this->validate($request, [
             'name' => 'required',
             'phone' => 'required',
@@ -49,6 +49,7 @@ class SupportTicketController extends Controller
         // ! Unique ID
         $unique_id = uniqid();
 
+        // !Create
         SupportTicket::create([
             'name' => $request['name'],
             'phone' => $request['phone'],
@@ -61,8 +62,6 @@ class SupportTicketController extends Controller
         $name = $request->name;
         $email = $request->email;
         $description = $request->description;
-
-
         $subject = "Online Support";
 
         $data = array('name' => $name, 'email' => $email, 'description' => $description, 'unique_id' => $unique_id);
@@ -70,9 +69,9 @@ class SupportTicketController extends Controller
             $message->to($email, 'Email Title')->subject($subject);
             $message->from($email, $name);
         });
-        echo "HTML Email Sent. Check your inbox.";
 
-        // return redirect()->back()->with('success', 'Ticket Added');
+        // dd('Email Sent');
+        return redirect()->back()->with('success', 'Ticket Added, The ticket reference number has been sent to your email');
     }
 
     /**
